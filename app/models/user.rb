@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
+	validates :email, uniqueness: true, case_sensitive: false, on: :create
 
 	def self.confirm(user_params)
 		@user = User.find_by({email: user_params[:email]})

@@ -1,6 +1,7 @@
+<% if flash[:notice] %>
+	<div class="notice"><font color="green"><%= flash[:notice] %></font></div>
+<% end %>
 <%= form_for @post, url:"/cities/#{params[:city_id]}/posts" do |f| %>
-	<!-- add hidden field for city_id ––––––– params[:city_id] -->
-	<!-- add hidden field for user_id ––––––– current_user.id -->
 	<%= f.hidden_field :user_id, :value => current_user.id %>
      <%= f.hidden_field :city_id, :value => params[:city_id] %>
 	  <div>
@@ -10,5 +11,8 @@
   <div>
     <%= f.text_field :description, placeholder: "Description" %>
   </div>
-  <%= f.submit "Sign Up" %>
+  <%= f.submit "Add Post" %>
+<% end %>
+<% if flash[:alert] %>
+	<div class="alert"><font color="red"><%= flash[:alert] %></font></div>
 <% end %>

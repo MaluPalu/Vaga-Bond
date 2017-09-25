@@ -15,8 +15,8 @@
  */
 @import "materialize";
 @import "materialize/extras/nouislider";
-
-/*This is where the CSS starts*/ 
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+/*This is where the CSS starts*/
 
 .nav-wrapper {
 	background-color: white;
@@ -47,7 +47,6 @@ height: 15vw ;
 #welcome {
 	color:black;
 }
-
-
-
-
+.addPost {
+	
+}

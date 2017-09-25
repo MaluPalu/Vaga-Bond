@@ -1,0 +1,11 @@
+<h2>Update Your Post</h2>
+<hr>
+<%= form_for @post, url: update_post_path({city_id: @post.city.id, post_id: @post.id}) do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.text_field :description, placeholder: "Description" %>
+  </div>
+  <%= f.submit "Edit Post" %>
+<% end %>

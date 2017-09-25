@@ -1,5 +1,20 @@
 
-<ul>
-<li><%= @cities.location %></li>
-<li><%= @cities.description %></li>
+<%# make img src using location name to match an image name (in which I set customarily to match this img src) in the assets folder %>
+<div class="parallax-container">
+     <div class="parallax"><img src="/assets/<%=@city.location%>.jpg" /></div>
+     <h3 font-family="Bree Serif"><%= @city.location %></h3>
+   </div>
+   <div class="addPost"><%= link_to "Add Post", "/cities/#{params[:city_id]}/posts/new", :class=>"waves-effect waves-light btn" %></div>
+   <hr>
+<% @posts.each do |post| %>
+<ul class="collection">
+  <li class="collection-item avatar">
+    <img src="images/yuna.jpg" alt="" class="circle">
+    <span class="title"><%= link_to post.title, "/cities/#{params[:city_id]}/posts/#{post.id}" %></span>
+    <p><br>
+       <%= post.description %>
+    </p>
+    <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= post.user.first_name%></i></a>
+  </li>
 </ul>
+<% end %>
