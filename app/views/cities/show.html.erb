@@ -1,7 +1,7 @@
 
 <%# make img src using location name to match an image name (in which I set customarily to match this img src) in the assets folder %>
 <div class="parallax-container">
-     <div class="parallax"><img src="/assets/<%=@city.location%>.jpg" /></div>
+     <div class="parallax"><%= image_tag (@city.location + '.jpg') %>/></div>
      <h3 font-family="Bree Serif"><%= @city.location %></h3>
    </div>
    <div class="addPost"><%= link_to "Add Post", "/cities/#{params[:city_id]}/posts/new", :class=>"waves-effect waves-light btn" %></div>
