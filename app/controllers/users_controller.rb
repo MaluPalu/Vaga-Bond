@@ -13,9 +13,14 @@ class UsersController < ApplicationController
 	#POST /users/ (creates from submitted form values)
 	def create
 		@user = User.create(user_params)
-    login(@user)
-    redirect_to @user
-	end
+		if @user
+			 login(@user)
+			 redirect_to user_path({id: @user.id})
+	 else
+			 flash[:error] = "email already in use, please try a different email"
+			 redirect_to root_path
+	 end
+end
 
 	#GET /users/:id (shows the individual user)
 	def show
