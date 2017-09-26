@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
 # GET /cities/:city_id/posts/:id (shows the specific post for the specific city)
 	def show
+		# passed in instance variables to use on my views/posts/show
 		@post = Post.find_by_id(params[:post_id])
 		@city = City.find_by_id(params[:city_id])
 		@user = User.find_by_id(session[:user_id])
@@ -36,15 +37,20 @@ class PostsController < ApplicationController
 
 # PATCH /posts/:id (updates the submitted form values)
 	def update
+		# finds the specific post using the params hash
 		post = Post.find_by_id(params[:post_id])
+		# specifies which properties in the post_params hash to update
 		post.update(title: post_params[:title], description: post_params[:description])
+		# redirects to the show page for the cities using the model
+		# relationship between city/post to specify which post to which city
 		redirect_to show_city_post_path({city_id: post.city.id, post_id: post.id})
 	end
 
 # DELETE /posts/:id (deletes specific post)
 	def destroy
+		# specifies which specific post to destroy based on params hash
 		post = Post.destroy(params[:post_id])
-		flash[:notice] = "Successfully deleted post on " + post.city.location
+		flash[:notice] = "Successfully deleted post on " + post.city.location # <--- Uses the post/city relationship in the model to call
 		redirect_to user_path current_user
 	end
 

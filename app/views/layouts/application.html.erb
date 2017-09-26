@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+  </head>
+<%# Will only show on the nav bar if there is not a user logged in %>
 <% if current_user == nil %>
    <nav>
     <div class="nav-wrapper">
@@ -20,6 +21,7 @@
       </ul>
     </div>
   </nav>
+  <%# Will only show on the nav bar if a user is logged in %>
 <% else %>
     <nav>
     <div class="nav-wrapper">

@@ -7,8 +7,11 @@ class SessionsController < ApplicationController
 
 	#POST '/sessions' (creates a new session / logs in the user)
 	def create
+		# rearranges the params to only permit email and password
     user_params = params.require(:user).permit(:email, :password)
+		# "has_secure_password" magic using the confirm method to validate :email and :password
     @user = User.confirm(user_params)
+		# if the @user instance variable is confirmed run the function
   	if @user
       login(@user)
       flash[:notice] = "Successfully logged in."      # <--- Add this flash notice

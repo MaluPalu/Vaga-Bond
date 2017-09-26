@@ -12,7 +12,9 @@ class UsersController < ApplicationController
 
 	#POST /users/ (creates from submitted form values)
 	def create
+		# create method automatically saves. Uses the user_params hash declared below to create specified properties
 		@user = User.create(user_params)
+		# if @user instance variable successfully saves to the database run the function
 		if @user
 			 login(@user)
 			 redirect_to user_path({id: @user.id})
@@ -30,6 +32,7 @@ end
 	#PATCH /users/:id (updates from submitted form values)
 	def update
 		@user = User.find_by_id(session[:user_id])
+		# update method specifies what to set specifically using hashes and our user_params hash.
 		@user.update(first_name: user_params[:first_name], last_name: user_params[:last_name], hometown: user_params[:hometown], prof_image: user_params[:prof_image])
 		redirect_to @user
 	end
