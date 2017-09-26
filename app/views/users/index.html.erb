@@ -3,6 +3,9 @@
 <% end %>
  <div class="slider">
     <ul class="slides">
+      <!-- You can use an each loop instead of hard-coding these images -->
+      <!-- i.e. in your users controller's index method, you can set an -->
+      <!-- images array to loop through (i.e. ['map.jpg', 'liverpool.jpg', etc]) -->
       <li>
         <%= image_tag 'map.jpg' %> <!-- random image -->
         <div class="caption center-align">

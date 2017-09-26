@@ -1,17 +1,20 @@
-
+<!-- spacing and indentation! -->
 <div class="parallax-container">
-     <div class="parallax"><%= image_tag (@city.location + '.jpg') %> /></div>
-   </div>
+  <div class="parallax"><%= image_tag (@city.location + '.jpg') %> /></div>
+</div>
 
 <ul class="collection">
   <li class="collection-item avatar">
     <img src="<%=@user.prof_image%>" alt="" class="circle">
     <span class="title"><h5><%= @post.title  %></h5></span>
-    <p><br>
-       <%= @post.description %>
-    </p>
-    <a href="#!" class="secondary-content"><i class="material-icons">Post by <%= @post.user.first_name %></i></a>
+    <p><%= @post.description %></p>
+
+    <a href="#!" class="secondary-content">
+      <i class="material-icons">Post by <%= @post.user.first_name %></i>
+    </a>
+
     <hr>
+
     <%= link_to "Edit Post", edit_post_path({city_id: @post.city.id, post_id: @post.id}), :class=>"waves-effect waves-light btn" %>
     <%= link_to "Delete", destroy_post_path({post_id: @post.id}), :class=>"waves-effect waves-light grey btn", method: :delete, data: { confirm: "You sure?" } %>
   </li>
