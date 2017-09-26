@@ -3,12 +3,15 @@
 	<div class="notice"><font color="green"><%= flash[:notice] %></font></div>
 <% end %>
 <ul class="collection">
+  <!-- The indentation below here makes me sad -->
       <li href="#!" class="collection-item"><%= link_to "San Francisco", '/cities/1' %></li>
       <li href="#!" class="collection-item"><%= link_to "Gibraltar", '/cities/2' %></li>
       <li href="#!" class="collection-item"><%= link_to "London", '/cities/3' %></li>
     </ul>
 
 <div id="profile-page" class="section">
+  <!-- This file is getting pretty long and busy: -->
+  <!-- you can break out card-content and card-reveal into their own partials-->
             <!-- profile-page-header -->
             <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -68,7 +71,4 @@
             </div>
           </div>
 </ul>
-
-
-
-<br /> -->
+<br />

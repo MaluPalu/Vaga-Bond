@@ -1,18 +1,24 @@
+<!-- Indentation and spacing! -->
 <% if flash[:notice] %>
 	<div class="notice"><font color="green"><%= flash[:notice] %></font></div>
 <% end %>
+
+<!-- You could also put this form inside a partial -->
 <%= form_for @post, url:"/cities/#{params[:city_id]}/posts" do |f| %>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
-     <%= f.hidden_field :city_id, :value => params[:city_id] %>
-	  <div>
+  <%= f.hidden_field :city_id, :value => params[:city_id] %>
+	
+  <div>
     <%= f.text_field :title, placeholder: "Title" %>
-
   </div>
+
   <div>
     <%= f.text_field :description, placeholder: "Description" %>
   </div>
+
   <%= f.submit "Add Post" %>
 <% end %>
+
 <% if flash[:alert] %>
 	<div class="alert"><font color="red"><%= flash[:alert] %></font></div>
 <% end %>

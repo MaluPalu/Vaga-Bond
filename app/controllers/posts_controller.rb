@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+	# I KNOW YOU/MICHELLE WERE SOLIDIFYING YOUR RAILS KNOWLEDGE AS YOU WERE GOING,
+	# BUT MAKE SURE FOR FUTURE RAILS PROJECTS, YOU 1) DON'T COMMIT COMMENTS, 
+	# 2) MAKE IT SUPER OBVIOUS WHAT YOUR CODE DOES SO YOU DON'T NEED COMMENTS
+	# (NAME VARIABLES INTUITIVELY).
 
 # GET /cities/:city_id/posts/new (shows the create post form)
 	def new
@@ -7,9 +11,9 @@ class PostsController < ApplicationController
 
 # POST /cities/:city_id/posts (creates the submitted form values)
 	def create
-			# blank? method checks if simple string is blank or not and returns boolean
-		blank_post = post_params[:title].blank? || post_params[:description].blank?
-		if blank_post
+		# RENAME THIS VARIABLE SO IT'S OBVIOUS WHAT IT DOES
+		is_post_blank = post_params[:title].blank? || post_params[:description].blank?
+		if is_post_blank
 			flash[:alert] = "Must fill in specified fields"
 			redirect_to '/cities/' + params[:city_id] + '/posts/new'
 		else

@@ -7,6 +7,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
+
+  <!-- This nav bar could be its own partial -->
 <%# Will only show on the nav bar if there is not a user logged in %>
 <% if current_user == nil %>
    <nav>
