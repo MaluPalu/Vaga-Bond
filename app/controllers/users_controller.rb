@@ -16,13 +16,13 @@ class UsersController < ApplicationController
 		@user = User.create(user_params)
 		# if @user instance variable successfully saves to the database run the function
 		if @user
-			 login(@user)
-			 redirect_to user_path({id: @user.id})
-	 else
-			 flash[:error] = "email already in use, please try a different email"
-			 redirect_to root_path
-	 end
-end
+			login(@user)
+			redirect_to user_path({id: @user.id})
+		else
+			flash[:error] = "email already in use, please try a different email"
+			redirect_to root_path
+		end
+	end
 
 	#GET /users/:id (shows the individual user)
 	def show
@@ -45,12 +45,12 @@ end
 	private
 	def user_params
 		# this turns Rails controller params:
-			# {"utf8"=>"✓",
- 			#"authenticity_token"=>"qKiOKZhFuv3GQKcn/lz+UlTAIsc2CWba61vchczsCBf4bNjvAwZtl78nqCbnM/yEndPltHlteuajmoYZRF1Dgg==",
- 			# "user"=>{"first_name"=>"Jesse", "last_name"=>"", "email"=>"malu.peralta808@gmail.com", "password"=>"[FILTERED]", "hometown"=>"", "prof_image"=>""},
- 			# "commit"=>"Sign Up"}
+		# {"utf8"=>"✓",
+		#"authenticity_token"=>"qKiOKZhFuv3GQKcn/lz+UlTAIsc2CWba61vchczsCBf4bNjvAwZtl78nqCbnM/yEndPltHlteuajmoYZRF1Dgg==",
+		# "user"=>{"first_name"=>"Jesse", "last_name"=>"", "email"=>"malu.peralta808@gmail.com", "password"=>"[FILTERED]", "hometown"=>"", "prof_image"=>""},
+		# "commit"=>"Sign Up"}
 		# into this:
-			# user_params: { first_name, last_name, etc...}
+		# user_params: { first_name, last_name, etc...}
 		params.require(:user).permit(:email, :first_name, :last_name, :password, :prof_image, :hometown)
 	end
 

@@ -12,13 +12,15 @@
 //
 //= require rails-ujs
 //= require turbolinks
+
 //= require_tree .
 //= require jquery
-//= require turbolinks
+//= require highcharts
+//= require chartkick
 //= require materialize-sprockets
-//= require jquery.turbolinks
 //= require materialize
 //= require materialize/extras/nouislider
+
 document.addEventListener("turbolinks:load", function() {
   $('.slider').slider();
   $(".button-collapse").sideNav();

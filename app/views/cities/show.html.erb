@@ -3,15 +3,15 @@
 <div class="parallax-container">
      <div class="parallax"><%= image_tag (@city.location + '.jpg') %>/></div>
      <h3><%= @city.location %></h3>
-   </div>
-   <hr>
-   <div class="addPost"><%= link_to "Add Post", "/cities/#{params[:city_id]}/posts/new", :class=>"waves-effect waves-light btn" %></div>
+</div>
+<hr>
+<div class="addPost"><%= link_to "Add Post", "/cities/#{params[:city_id]}/posts/new", :class=>"waves-effect waves-light btn" %></div>
 <%# runs trough all the posts for the posts with the city_id in the params %>
 <% @posts.each do |post| %>
-<ul class="collection">
-  <li class="collection-item avatar">
-    <img src="images/yuna.jpg" alt="" class="circle">
-    <span class="title"><%= link_to post.title, "/cities/#{params[:city_id]}/posts/#{post.id}" %></span>
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+        <span class="title"><%= link_to post.title, "/cities/#{params[:city_id]}/posts/#{post.id}" %></span>
     <p><br>
        <%= post.description %>
     </p>
